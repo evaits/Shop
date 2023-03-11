@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header-title">Register</h1>
+        <div class="block">
+            <form action="register.php" method="post">
+                <label for="nick">Nickname</label><br>
+                <input type="text" name="nick" placeholder="s.den4ik.h" id="nick">
+
+                <label for="email">Email</label><br>
+                <input type="email" name="email" placeholder="example@email.com" id="email">
+
+                <label for="password">Password</label><br>
+                <input type="password" name="password" placeholder="●●●●●●●●●" id="password">
+
+                <button class="btn" onclick="check_inputs(); return false">Register</button>
+            </form>
+            <span class="login">
+                Already have an account? <a href="login.html">Log in your account</a>
+            </span>
+        </div>
+    </div>
+    <div class="modal_error">
+        
+    </div>
+    <script src="../js/register/register.js"></script>
+</body>
+</html>

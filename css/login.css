@@ -1,0 +1,99 @@
+body {
+    font-family: 'Helvetica';
+    background: #F8F8F8;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title {
+    font-weight: 400;
+    font-size: 33px;
+    line-height: 28px;
+    text-align: center;
+    color: #111111;
+    margin-bottom: 24px;
+}
+
+.block {
+    width: 400px;
+    height: 100%;
+    padding: 24px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+form {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+label {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 16px;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+#nick {
+    margin-top: 15px;
+    background: rgba(249, 249, 249, 0.8);
+    border: 1px solid #EEEEEE;
+    border-radius: 4px;
+    padding: 15px;
+    padding-bottom: 13px;
+    font-size: 16px;
+    padding-right: 0;
+    width: 96%;
+    margin-bottom: 24px;
+}
+
+#password {
+    margin-top: 15px;
+    background: rgba(249, 249, 249, 0.8);
+    border: 1px solid #EEEEEE;
+    border-radius: 4px;
+    padding: 15px;
+    padding-bottom: 13px;
+    font-size: 16px;
+    padding-right: 0;
+    width: 96%;
+    margin-bottom: 24px;
+}
+
+::placeholder {
+    font-size: 16px;
+    height: 17px;
+}
+
+.btn {
+    width: 100%;
+    background: #007AFF;
+    border-radius: 8px;
+    border: 0;
+    font-weight: 700;
+    font-size: 18px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+    transition: background .2s linear;
+}
+
+.btn:hover {
+    background: #0270e7;
+}
+
+.login {
+    font-weight: 400;
+    font-size: 19.4px;
+    line-height: 16px;
+    text-align: center;
+    color: #111111;
+}
+
+.login a {
+    color: #007AFF;
+}
