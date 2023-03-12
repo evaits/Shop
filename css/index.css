@@ -1,0 +1,160 @@
+body {
+    background-color: #EDEDED;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-left: 16px;
+}
+
+.nav_bar {
+    width: 52px;
+    height: calc(100vh - 80px);
+    background-color: white;
+    border-radius: 8px;
+    position: fixed;
+    text-align: center;
+    padding: 24px 10px;
+    padding-bottom: 0;
+    transition: width .2s linear;
+    -ms-user-select: none; 
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	user-select: none; 
+}
+
+.logo {
+    width: 30px;
+    height: 37px;
+}
+
+/* Burger Menu */
+
+#checkbox-toggle {
+    display: none;
+}
+
+.burger_menu {
+    cursor: pointer;
+    margin-top: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.bar {
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.bar-line {
+    background-color:#000000;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.bar-line::after,
+.bar-line::before {
+    background-color:#000000;
+    display: block;
+    content: "";
+    position: absolute;
+    transition: all .3s;
+    width: 100%;
+    height: 100%;
+}
+
+.bar-line::after {
+    top: -7px;
+}
+
+.bar-line::before {
+    top: 7px;
+}
+
+#checkbox-toggle:checked ~ .bar .bar-line {
+    background-color: transparent;
+}
+
+#checkbox-toggle:checked ~ .bar .bar-line::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+#checkbox-toggle:checked ~ .bar .bar-line::after {
+    transform: rotate(45deg);
+    top: 0%;
+}
+
+.main_link {
+    background: #1A1F16;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_link p {
+    display: none;
+    color: white;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.main_ico { 
+    widows: 30px;
+    height: 30px;
+}
+
+.bag_link {
+    display: flex;
+    justify-content: center;
+    /* padding-right: 20px; */
+}
+
+.bag_link p {
+    display: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: auto;
+    margin-top: auto;
+    padding-right: auto;
+    padding-left: auto;
+}
+
+.bag-ico {
+    width: 45px;
+    height: 45px;
+}
+
+/* exit */
+.exit {
+    position: absolute;
+    cursor: pointer;
+    bottom: 20px;
+    left: 6px;
+    background: #E5252C;
+    border-radius: 10px;
+    padding: 10px 15px;
+    padding-right: 14px;
+    text-align: center;
+    transition: padding .2s linear;
+}
+
+.exit_ico {
+    width: 30px;
+    height: 30px;
+}

@@ -6,9 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Shop</title>
 </head>
 <body>
-    
+    <div class="nav_bar">
+        <a href="index.html"><img src="img/nav-bar/logo.png" alt="logo" class="logo"></a>
+
+        <div class="burger_menu" onclick="checkbox_checked()">
+            <input type="checkbox" id="checkbox-toggle">
+            <label for="checkbox-toggle" class="bar"><span class="bar-line"></span></label>
+        </div>
+
+        <div class="main_link">
+            <img src="Img/nav-bar/main.png" alt="Main" class="main_ico">
+            <p>Store</p>
+        </div>
+
+        <a href="#!" class="bag_link">
+            <img src="img/nav-bar/bag.png" alt="bag" class="bag-ico">
+            <p>Bag</p>
+        </a>
+
+        <div class="exit" onclick="exit()">
+            <img src="Img/nav-bar/exit.png" alt="exit" class="exit_ico">
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/exit.js"></script>
 </body>
 </html>
