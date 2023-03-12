@@ -97,3 +97,51 @@ label {
 .login a {
     color: #007AFF;
 }
+
+/* Modal */
+.modal_error {
+    position: absolute;
+    top: 25px;
+    display: none;
+}
+
+.modal_error_bg {
+    border-radius: 10px;
+    padding: 20px;
+    width: 260px;
+    height: 97px;
+    background-color: rgb(254, 254, 254);
+    -webkit-box-shadow: 2px 8px 25px -14px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 2px 8px 25px -14px rgba(66, 68, 90, 1);
+    box-shadow: 2px 8px 25px -14px rgba(66, 68, 90, 1);
+}
+
+.modal_error_header {
+    font-size: 20px;
+    color: #616866;
+    margin-bottom: 10px;
+}
+
+.modal_error_context {
+    font-size: 15px;
+}
+
+hr {
+    border: 0,1px solid rgb(136, 136, 136);
+}
+
+.modal_error_btn {
+    background-color: #007AFF;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 22px;
+    float: right;
+    transition: background .2s linear;
+}
+
+
+.modal_error_btn:hover {
+    background: #0270e7;
+}

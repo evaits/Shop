@@ -3,7 +3,7 @@ function check_inputs(){
     const inp_arr = ['nick', 'email', 'password']
     for(let i = 0; i<inp_arr.length; i++){
         let input = document.getElementById(inp_arr[i]).value
-        if(input == ''){
+        if((input == '') || (input.length < 3) || (input.length > 30)){
             const modal = `<div class="modal_error_bg">
             <div class="modal_error_header">
                 An error occurred
@@ -24,6 +24,7 @@ function check_inputs(){
             return false;
         }
     }
+    document.querySelector('form').submit()
 }
 
 // Close Error Modal
