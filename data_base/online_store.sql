@@ -38,11 +38,6 @@ CREATE TABLE `users` (
 -- Дамп даних таблиці `users`
 --
 
-INSERT INTO `users` (`id`, `nickname`, `email`, `pass`) VALUES
-(1, 'Denys', 'musicevait@gmail.com', '123467728'),
-(2, 'evait', 'musicevait@gmail.com', '123467728'),
-(7, 'denys', 'liza@gmail.com', '12313');
-
 --
 -- Індекси збережених таблиць
 --
