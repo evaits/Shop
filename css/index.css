@@ -1,7 +1,11 @@
 body {
     background-color: #EDEDED;
     padding-left: 100px;
-    display: flex;
+    padding-right: 345px;
+    -ms-user-select: none; 
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	user-select: none; 
 }
 
 .nav_bar {
@@ -16,10 +20,6 @@ body {
     padding: 24px 10px;
     padding-bottom: 0;
     transition: width .2s linear;
-    -ms-user-select: none; 
-	-moz-user-select: none; 
-	-webkit-user-select: none; 
-	user-select: none; 
 }
 
 .logo {
@@ -161,16 +161,40 @@ body {
 }
 
 /* Main */
+.main {  
+    width: 100%;
+    overflow: auto;
+    margin-top: 32px;
+    height: 100vh;
+}
+
+.main::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #EDEDED;
+}
+
+.main::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #F5F5F5;
+}
+
+.main::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: rgba(26, 31, 22, 0.5);
+}
+
 .search_wrapper {
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
-    padding-top: 32px;
+    margin-bottom: 42px;
 }
 
 .search {
-    /* display: inline-block; */
-    margin-bottom: 42px;
+    display: inline-block;
     position: relative;
     
 }
@@ -206,10 +230,109 @@ body {
     color: rgba(26, 31, 22, 0.5);
 }
 
+/* Products */
+.products_wrapper {
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 56px;
+    grid-row-gap: 32px;
+    grid-auto-flow: row dense;
+}
+
+.product_small {
+    width: 190px;
+    height: 100%;
+    grid-column: span 1;
+}
+
+.product_preview_small {
+    background: #FFFFFF;
+    border-radius: 22px;
+    padding: 16px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.product_preview_small img{
+    width: 160px;
+    height: 200px;
+}
+
+.product_info {
+    padding: 0 10px;
+}
+
+.product_name {
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1A1F16;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.product_name:hover {
+    text-decoration: underline;
+}
+
+.product_details {
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #60695C;
+}
+
+.product_footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 10px;
+}
+
+.product_price {
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1A1F16;
+    margin: auto 0;
+}
+
+.addToBag {
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+}
+
+.product_big {
+    grid-column: span 2;
+}
+
+.product_preview_big {
+    background: #FFFFFF;
+    border-radius: 22px;
+    padding: 16px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.product_preview_big img {
+    width: 395px;
+    height: 200px;
+}
 
 
 .bag {
-    width: 400px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 345px;
     height: 100vh;
-    background-color: #adafac;
+    background-color: #EDEDED;
 }
