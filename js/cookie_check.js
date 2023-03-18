@@ -8,5 +8,5 @@ function getCookie(name) {
 let cookie_func = getCookie('user')
 
 if(cookie_func != undefined){
-    location = '../index.html'
+    location = '../index.php'
 }

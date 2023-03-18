@@ -2,10 +2,12 @@ body {
     background-color: #EDEDED;
     padding-left: 100px;
     padding-right: 345px;
-    -ms-user-select: none; 
+    padding-top: 30px;
+    /* -ms-user-select: none; 
 	-moz-user-select: none; 
 	-webkit-user-select: none; 
-	user-select: none; 
+	user-select: none;  */
+    overflow: hidden;
 }
 
 .nav_bar {
@@ -23,8 +25,8 @@ body {
 }
 
 .logo {
-    width: 30px;
-    height: 37px;
+    width: 20px;
+    height: 27px;
 }
 
 /* Burger Menu */
@@ -35,7 +37,7 @@ body {
 
 .burger_menu {
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 42px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -51,7 +53,7 @@ body {
     display: block;
     height: 2px;
     position: relative;
-    width: 24px;
+    width: 20px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -97,6 +99,11 @@ body {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    transition: background .1s linear;
+}
+
+.main_link:hover {
+    background: #353b30;
 }
 
 .main_link p {
@@ -119,7 +126,6 @@ body {
 .bag_link {
     display: flex;
     justify-content: center;
-    /* padding-right: 20px; */
 }
 
 .bag_link p {
@@ -152,7 +158,12 @@ body {
     padding: 10px 15px;
     padding-right: 14px;
     text-align: center;
+    transition: background .1s linear;
     transition: padding .2s linear;
+}
+
+.exit:hover {
+    background: #bb1f24;
 }
 
 .exit_ico {
@@ -164,7 +175,7 @@ body {
 .main {  
     width: 100%;
     overflow: auto;
-    margin-top: 32px;
+    margin-top: 0px;
     height: 100vh;
 }
 
@@ -233,6 +244,7 @@ body {
 /* Products */
 .products_wrapper {
     padding: 0 50px;
+    padding-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 56px;
@@ -244,6 +256,8 @@ body {
     width: 190px;
     height: 100%;
     grid-column: span 1;
+    align-self: center;
+    justify-self: center;
 }
 
 .product_preview_small {
@@ -305,9 +319,20 @@ body {
 }
 
 .addToBag {
-    width: 34px;
-    height: 34px;
     cursor: pointer;
+    background: #1A1F16;
+    border-radius: 9px;
+    padding: 8px 9px;
+    transition: background .1s linear;
+}
+
+.addToBag:hover {
+    background: #343a2e;
+}
+
+.addToBag img {
+    width: 22px;
+    height: 22px;
 }
 
 .product_big {
@@ -320,6 +345,8 @@ body {
     padding: 16px;
     margin-bottom: 8px;
     cursor: pointer;
+    text-align: center;
+    
 }
 
 .product_preview_big img {
@@ -328,11 +355,75 @@ body {
 }
 
 
+/* Bag */
 .bag {
     position: fixed;
     right: 0;
     top: 0;
     width: 345px;
     height: 100vh;
+    text-align: center;
     background-color: #EDEDED;
+}
+
+.bag_title {
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 39.06px;
+    line-height: 47px;
+    color: #1A1F16;
+    margin-top: 80px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.bag_products {
+    margin-left: 36px;
+    margin-right: 36px;
+    margin-bottom: 38px;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-auto-flow: row dense;
+}
+
+.bag_products_preview {
+    display: inline-block;
+    background-color: white;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.bag_products_preview img {
+    width: 64px;
+    height: 64px;
+    padding: 8px;
+}
+
+.linkToBag {
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background: #1A1F16;
+    border-radius: 18px;
+    padding: 9px 26px;
+    text-align: center;
+    transition: background .1s linear;
+}   
+
+.linkToBag:hover {
+    background: #353b30;
+}
+
+.linkToBag img {
+    margin-right: 7px;
+    margin-bottom: 6px;
+    width: 19.5px;
+    height: 21px;
+    vertical-align: middle;
 }

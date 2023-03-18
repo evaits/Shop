@@ -1,3 +1,7 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
 function checkbox_checked() {
     let check = document.querySelector('#checkbox-toggle')
     if(check.checked){
@@ -34,3 +38,4 @@ function checkbox_checked() {
         
     }
 }
+
