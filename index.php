@@ -58,8 +58,15 @@
                             <img src="'.$info["img"].'" alt="product">
                         </div>
                         <div class="product_info">
-                            <p class="product_name">'.$info["name"].'</p>
-                            <p class="product_details">
+                            ';
+                            if(strlen($info['name']) > 14 && $info['type'] == 'small'){
+                                echo '<p class="product_name" id="product_name_smallText">'.$info["name"].'</p>';
+                            }
+                            else {
+                                echo '<p class="product_name">'.$info["name"].'</p>';
+                            }
+
+                            echo '<p class="product_details">
                             '.$info["shortInfo"].'
                             </p>
                         </div>
