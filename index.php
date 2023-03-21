@@ -98,7 +98,7 @@
 
                 while($bag_preview = $bag_products->fetch_assoc()){
                     echo "
-                    <div class='bag_products_preview_".$bag_preview['type']."' onmouseover='bag_hover(this)'>
+                    <div class='bag_products_preview_".$bag_preview['type']."' onmouseover='bag_hover(this)'; onmouseout='bag_unhover(this)'>
                         <img src='".$bag_preview['img']."' alt='product'>
                     </div>";
                 }

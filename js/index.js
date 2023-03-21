@@ -39,9 +39,10 @@ function checkbox_checked() {
     }
 }
 
+
+// Bag hover
 function bag_hover(elem) {
     elem.classList.add('bag_product_preview_hover')
-    console.log(elem)
 }
 
 function bag_unhover(elem) {

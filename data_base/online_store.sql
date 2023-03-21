@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 19 2023 р., 21:54
+-- Час створення: Бер 21 2023 р., 22:35
 -- Версія сервера: 10.4.27-MariaDB
 -- Версія PHP: 8.0.25
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- База даних: `online_store`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `bag`
+--
+
+CREATE TABLE `bag` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `amount` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп даних таблиці `bag`
+--
+
+INSERT INTO `bag` (`id`, `user_id`, `product_id`, `amount`) VALUES
+(5, 9, 5, NULL),
+(6, 9, 5, NULL),
+(7, 9, 2, NULL),
+(20, 9, 1, NULL),
+(21, 9, 6, NULL),
+(22, 9, 2, NULL),
+(23, 9, 1, NULL),
+(24, 9, 2, NULL),
+(25, 9, 4, NULL),
+(26, 9, 4, NULL),
+(27, 9, 3, NULL),
+(28, 9, 7, NULL),
+(29, 9, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -68,13 +100,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `pass`) VALUES
-(1, 'Denys', 'musicevait@gmail.com', '123467728'),
-(2, 'evait', 'musicevait@gmail.com', '123467728'),
-(7, 'denys', 'liza@gmail.com', '12313');
+(8, 'denys', 'lol@gmail.com', '123123'),
+(9, 'evait', 'lol@gmail.com', '123123');
 
 --
 -- Індекси збережених таблиць
 --
+
+--
+-- Індекси таблиці `bag`
+--
+ALTER TABLE `bag`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Індекси таблиці `products`
@@ -93,6 +130,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблиці `bag`
+--
+ALTER TABLE `bag`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
 -- AUTO_INCREMENT для таблиці `products`
 --
 ALTER TABLE `products`
@@ -102,7 +145,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
