@@ -14,5 +14,5 @@
         exit();
     }
 
-    setcookie('user', $user['nickname'], time() + 3600, "/");
-    header('Location: ../index.html');
+    setcookie('user', $user['id'], time() + 3600, "/");
+    header('Location: ../index.php');

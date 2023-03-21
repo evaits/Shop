@@ -39,3 +39,11 @@ function checkbox_checked() {
     }
 }
 
+function bag_hover(elem) {
+    elem.classList.add('bag_product_preview_hover')
+    console.log(elem)
+}
+
+function bag_unhover(elem) {
+    elem.classList.remove('bag_product_preview_hover')
+}

@@ -12,6 +12,7 @@
     <title>Shop</title>
 </head>
 <body>
+    <script src="js/index_cockie_check.js"></script>
     <div class="nav_bar">
         <a href="index.html"><img src="img/nav-bar/logo.png" alt="logo" class="logo"></a>
 
@@ -49,7 +50,7 @@
 
             <?php
                 require 'php/connect.php';
-                $products = mysqli_query($conn, "SELECT `name`,`shortInfo`,`price`,`img`, `type` FROM `products` ORDER BY RAND()");
+                $products = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products` ORDER BY RAND()");
                 
                 while($info = $products->fetch_assoc()){
                     echo 
@@ -74,9 +75,9 @@
                             <div class="product_price">$ 
                             '.$info["price"].'
                             </div>
-                            <div class="addToBag">
+                            <a class="addToBag" href="php/addToBag.php?id='.$info["id"].'">
                                 <img src="Img/Products/addToBag.png" alt="add to bag">
-                            </div>
+                            </a>
                         </div>
                     </div>';
                 };
@@ -92,24 +93,18 @@
             Bag
         </h2>
         <div class="bag_products">
-            <div class="bag_products_preview">
-                <img src="https://i.postimg.cc/Fzf8Kzt9/apple-watch.png" alt="product">
-            </div>
-            <div class="bag_products_preview">
-                <img src="https://i.postimg.cc/Fzf8Kzt9/apple-watch.png" alt="product">
-            </div>
-            <div class="bag_products_preview">
-                <img src="https://i.postimg.cc/Fzf8Kzt9/apple-watch.png" alt="product">
-            </div>
-            <div class="bag_products_preview">
-                <img src="https://i.postimg.cc/Fzf8Kzt9/apple-watch.png" alt="product">
-            </div>
-            <div class="bag_products_preview">
-                <img src="https://i.postimg.cc/Fzf8Kzt9/apple-watch.png" alt="product">
-            </div>
-            <div class="bag_products_preview">
-                <img src="https://i.postimg.cc/Fzf8Kzt9/apple-watch.png" alt="product">
-            </div>
+            <?php
+                $bag_products = mysqli_query($conn, 'SELECT products.type, products.img FROM `bag` INNER JOIN products ON bag.product_id=products.id WHERE bag.user_id='.$_COOKIE["user"].'');
+
+                while($bag_preview = $bag_products->fetch_assoc()){
+                    echo "
+                    <div class='bag_products_preview_".$bag_preview['type']."' onmouseover='bag_hover(this)'>
+                        <img src='".$bag_preview['img']."' alt='product'>
+                    </div>";
+                }
+            ?>
+            
+            
         </div>
         <a href="#!" class="linkToBag">
             <img src="Img/Products/bag_ico.png" alt="bag">
@@ -117,6 +112,7 @@
         </a>
     </div>
 
+    
     <script src="js/index.js"></script>
     <script src="js/exit.js"></script>
 </body>
