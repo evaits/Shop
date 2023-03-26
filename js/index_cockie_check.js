@@ -5,8 +5,9 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-let cookie_func = getCookie('user')
+let user = getCookie('user')
 
-if(cookie_func == undefined){
+if(user == undefined){
     location = 'register/login.html'
 }
+

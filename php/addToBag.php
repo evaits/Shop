@@ -6,4 +6,4 @@
     $stmt->execute();
     $stmt->close();
     $conn->close();
-    header('Location: ../index.php');
+    header('Location:' . $_SERVER['HTTP_REFERER']);

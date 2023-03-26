@@ -50,21 +50,21 @@
 
             <?php
                 require 'php/connect.php';
-                $products = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products` ORDER BY RAND()");
+                $products = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products`");
                 
                 while($info = $products->fetch_assoc()){
                     echo 
                     '<div class="product_'.$info["type"].'">
-                        <div class="product_preview_'.$info["type"].'">
+                        <a href="php/productPage.php?id='. $info["id"].'" class="product_preview_'.$info["type"].'">
                             <img src="'.$info["img"].'" alt="product">
-                        </div>
+                        </a>
                         <div class="product_info">
                             ';
                             if(strlen($info['name']) > 14 && $info['type'] == 'small'){
-                                echo '<p class="product_name" id="product_name_smallText">'.$info["name"].'</p>';
+                                echo '<a href="php/productPage.php?id='.$info["id"].'" class="product_name" id="product_name_smallText">'.$info["name"].'</a>';
                             }
                             else {
-                                echo '<p class="product_name">'.$info["name"].'</p>';
+                                echo '<a href="php/productPage.php?id='.$info["id"].'" class="product_name">'.$info["name"].'</a>';
                             }
 
                             echo '<p class="product_details">
@@ -94,14 +94,15 @@
         </h2>
         <div class="bag_products">
             <?php
-                $bag_products = mysqli_query($conn, 'SELECT products.type, products.img FROM `bag` INNER JOIN products ON bag.product_id=products.id WHERE bag.user_id='.$_COOKIE["user"].'');
+                $bag_products = mysqli_query($conn, 'SELECT bag.id, products.type, products.img FROM `bag` INNER JOIN products ON bag.product_id=products.id WHERE bag.user_id='.$_COOKIE["user"].'');
 
                 while($bag_preview = $bag_products->fetch_assoc()){
                     echo "
-                    <div class='bag_products_preview_".$bag_preview['type']."' onmouseover='bag_hover(this)'; onmouseout='bag_unhover(this)'>
+                    <a class='bag_products_preview_".$bag_preview['type']."' href='php/dellFromBag.php?id=" . $bag_preview['id'] . "' onmouseover='bag_hover(this)'; onmouseout='bag_unhover(this)'>
                         <img src='".$bag_preview['img']."' alt='product'>
-                    </div>";
+                    </a>";
                 }
+                $conn->close();
             ?>
             
             
