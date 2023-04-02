@@ -48,46 +48,87 @@
                 <img src="../Img/productPage/back.png" alt="arrow">
                 Back
             </a>
-            <div class="main_info">
-                <?php 
-                    echo '
-                    <div class="pictures">
-                        <div class="img_wrapper_small">
+            <?php 
+                if($info["type"] == "small"){
+                    echo 
+                    '<div class="main_info_'.$info["type"].'">
+                        <div class="pictures_small">
+                            <div class="img_wrapper_'.$info["type"].'">
+                                <img src="'.$info["img"].'" alt="product">
+                            </div>
+                            <div class="img_wrapper_'.$info["type"].'">
+                                <img src="'.$info["img"].'" alt="product">
+                            </div>
+                            <div class="img_wrapper_'.$info["type"].'">
+                                <img src="'.$info["img"].'" alt="product">
+                            </div>
+                        </div>
+                        <div class="main_img_'.$info["type"].'">
                             <img src="'.$info["img"].'" alt="product">
                         </div>
-                        <div class="img_wrapper_small">
-                            <img src="'.$info["img"].'" alt="product">
-                        </div>
-                        <div class="img_wrapper_small">
-                            <img src="'.$info["img"].'" alt="product">
-                        </div>
-                    </div>
-                    <div class="main_img_small">
-                        <img src="'.$info["img"].'" alt="product">
-                    </div>
 
-                    <div class="info">
-                        <div class="name">
-                            '.$info["name"].'
+                        <div class="info">
+                            <div class="name">
+                                '.$info["name"].'
+                            </div>
+                            <div class="short_info">
+                                '.$info["shortInfo"].'
+                            </div>
+                            <div class="price">
+                                $ '.$info["price"].'
+                            </div>
+                            <div class="midle_info_'.$info["type"].'">
+                                '.$info['midleInfo'].'
+                            </div>
+                            <a class="btn_addToBag" href="addToBag.php?id='.$info['id'].'">
+                                <img src="../Img/Products/bag_ico.png" alt="bag">
+                                Add to Bag
+                            </a>
                         </div>
-                        <div class="short_info">
-                            '.$info["shortInfo"].'
+                    </div>';
+                }
+                else{
+                    echo 
+                    '<div class="main_info_'.$info["type"].'">
+                        <div class="img_container">
+                            <div class="pictures_big">
+                                <div class="img_wrapper_'.$info["type"].'">
+                                    <img src="'.$info["img"].'" alt="product">
+                                </div>
+                                <div class="img_wrapper_'.$info["type"].'">
+                                    <img src="'.$info["img"].'" alt="product">
+                                </div>
+                                <div class="img_wrapper_'.$info["type"].'">
+                                    <img src="'.$info["img"].'" alt="product">
+                                </div>
+                            </div>
+                            <div class="main_img_'.$info["type"].'">
+                                <img src="'.$info["img"].'" alt="product">
+                            </div>
                         </div>
-                        <div class="price">
-                            $ '.$info["price"].'
+
+                        <div class="info_big">
+                            <div class="name">
+                                '.$info["name"].'
+                            </div>
+                            <div class="short_info">
+                                '.$info["shortInfo"].'
+                            </div>
+                            <div class="price">
+                                $ '.$info["price"].'
+                            </div>
+                            <div class="midle_info_'.$info["type"].'">
+                                '.$info['midleInfo'].'
+                            </div>
+                            <a class="btn_addToBag" href="addToBag.php?id='.$info['id'].'">
+                                <img src="../Img/Products/bag_ico.png" alt="bag">
+                                Add to Bag
+                            </a>
                         </div>
-                        <div class="midle_info">
-                            '.$info['midleInfo'].'
-                        </div>
-                        <a class="btn_addToBag" href="addToBag.php?id='.$info['id'].'">
-                            <img src="../Img/Products/bag_ico.png" alt="bag">
-                            Add to Bag
-                        </a>
-                    </div>'
-                
-                    ;
-                ?>
-            </div>
+                    </div>';
+                }
+            ?>
+            
             <div class="line"></div>
             <h3 class="description">
                 Description

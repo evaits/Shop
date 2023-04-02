@@ -252,6 +252,21 @@ body {
     grid-auto-flow: row dense;
 }
 
+.products_wrapper_error {
+    text-align: center;
+}
+
+/* Error with search */
+.notFound {
+    margin-top: 100px;
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 31.25px;
+    line-height: 38px;
+    color: #2a3224;
+}
+
 .product_small {
     width: 190px;
     height: 100%;

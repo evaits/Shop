@@ -1,13 +1,12 @@
 function getCookie(name) {
-    var matches = document.cookie.match(new RegExp(
+  var matches = document.cookie.match(new RegExp(
       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
 let user = getCookie('user')
 
 if(user == undefined){
-    location = 'register/login.html'
+  location = 'register/login.html'
 }
-

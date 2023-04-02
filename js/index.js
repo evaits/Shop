@@ -48,3 +48,19 @@ function bag_hover(elem) {
 function bag_unhover(elem) {
     elem.classList.remove('bag_product_preview_hover')
 }
+
+// Search
+function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+let search = getCookie('search')
+if(user == undefined){
+    location = 'register/login.html'
+}
+if(search != undefined){
+    document.querySelector('#search_input').value = search
+}

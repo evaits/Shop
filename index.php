@@ -39,48 +39,62 @@
 
     <div class="main">
         <div class="search_wrapper">
-            <div class="search">
+            <form method="get" action="php/search.php" class="search">
                 <label for="search_input">Search item</label><br>
                 <input type="text" name="search" placeholder="Apple Watch, Samsung S21, Macbook Pro, ..." id="search_input">
-            </div>
+            </form>
         </div>
     
         
-        <div class="products_wrapper">
 
             <?php
                 require 'php/connect.php';
-                $products = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products`");
-                
-                while($info = $products->fetch_assoc()){
-                    echo 
-                    '<div class="product_'.$info["type"].'">
-                        <a href="php/productPage.php?id='. $info["id"].'" class="product_preview_'.$info["type"].'">
-                            <img src="'.$info["img"].'" alt="product">
-                        </a>
-                        <div class="product_info">
-                            ';
-                            if(strlen($info['name']) > 14 && $info['type'] == 'small'){
-                                echo '<a href="php/productPage.php?id='.$info["id"].'" class="product_name" id="product_name_smallText">'.$info["name"].'</a>';
-                            }
-                            else {
-                                echo '<a href="php/productPage.php?id='.$info["id"].'" class="product_name">'.$info["name"].'</a>';
-                            }
-
-                            echo '<p class="product_details">
-                            '.$info["shortInfo"].'
-                            </p>
-                        </div>
-                        <div class="product_footer">
-                            <div class="product_price">$ 
-                            '.$info["price"].'
-                            </div>
-                            <a class="addToBag" href="php/addToBag.php?id='.$info["id"].'">
-                                <img src="Img/Products/addToBag.png" alt="add to bag">
+                if(!isset($_COOKIE['search'])){
+                    $products = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products`");
+                }
+                else{
+                    $search = $_COOKIE["search"];
+                    $products = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products` WHERE `name` LIKE '%". $search ."%'  ");
+                }
+                if($products->num_rows != 0){
+                    echo '<div class="products_wrapper">';
+                    while($info = $products->fetch_assoc()){
+                        echo 
+                        '<div class="product_'.$info["type"].'">
+                            <a href="php/productPage.php?id='. $info["id"].'" class="product_preview_'.$info["type"].'">
+                                <img src="'.$info["img"].'" alt="product">
                             </a>
-                        </div>
-                    </div>';
-                };
+                            <div class="product_info">
+                                ';
+                                if(strlen($info['name']) > 14 && $info['type'] == 'small'){
+                                    echo '<a href="php/productPage.php?id='.$info["id"].'" class="product_name" id="product_name_smallText">'.$info["name"].'</a>';
+                                }
+                                else {
+                                    echo '<a href="php/productPage.php?id='.$info["id"].'" class="product_name">'.$info["name"].'</a>';
+                                }
+    
+                                echo '<p class="product_details">
+                                '.$info["shortInfo"].'
+                                </p>
+                            </div>
+                            <div class="product_footer">
+                                <div class="product_price">$ 
+                                '.$info["price"].'
+                                </div>
+                                <a class="addToBag" href="php/addToBag.php?id='.$info["id"].'">
+                                    <img src="Img/Products/addToBag.png" alt="add to bag">
+                                </a>
+                            </div>
+                        </div>';
+                    };
+                }
+                else{
+                    echo '<div class="products_wrapper_error">
+                        <p class="notFound">
+                            No products with this name were found
+                        </p>
+                    ';
+                }
                 
             ?>
             
