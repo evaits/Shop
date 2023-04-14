@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Бер 26 2023 р., 20:14
+-- Час створення: Квт 15 2023 р., 00:37
 -- Версія сервера: 10.4.27-MariaDB
 -- Версія PHP: 8.0.25
 
@@ -31,7 +31,7 @@ CREATE TABLE `bag` (
   `id` int(11) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `amount` int(11) DEFAULT NULL
+  `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,14 +39,10 @@ CREATE TABLE `bag` (
 --
 
 INSERT INTO `bag` (`id`, `user_id`, `product_id`, `amount`) VALUES
-(143, 9, 1, NULL),
-(144, 9, 4, NULL),
-(145, 9, 5, NULL),
-(146, 9, 6, NULL),
-(147, 9, 2, NULL),
-(148, 9, 2, NULL),
-(149, 9, 4, NULL),
-(150, 9, 2, NULL);
+(195, 9, 4, 1),
+(196, 9, 2, 2),
+(197, 9, 5, 2),
+(199, 9, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -97,7 +93,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `pass`) VALUES
 (8, 'denys', 'lol@gmail.com', '123123'),
-(9, 'evait', 'lol@gmail.com', '123123');
+(9, 'evait', 'lol@gmail.com', '123123'),
+(16, '', '', '');
 
 --
 -- Індекси збережених таблиць
@@ -129,7 +126,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблиці `bag`
 --
 ALTER TABLE `bag`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT для таблиці `products`
@@ -141,7 +138,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

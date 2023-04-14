@@ -86,7 +86,7 @@ label {
     background: #0270e7;
 }
 
-.login {
+.register {
     font-weight: 400;
     font-size: 19.4px;
     line-height: 16px;
@@ -94,8 +94,13 @@ label {
     color: #111111;
 }
 
-.login a {
+.register a {
     color: #007AFF;
+    transition: color .2s linear;
+}
+
+.register a:hover {
+    color: #006bde;
 }
 
 /* Modal */

@@ -10,7 +10,7 @@ function check_inputs(){
             </div>
             <hr>
             <div class="modal_error_context">
-                A data problem was detected
+                A data problem was detected <br> or such a user already exists
             </div>
             <hr>
             <button class="modal_error_btn" onclick="close_error_modal()">
@@ -33,4 +33,8 @@ function close_error_modal() {
     let modal_error = document.querySelector('.modal_error')
     modal_error.innerHTML = ''
     modal_error.style.display = 'none'
+}
+
+if(document.cookie.split('error=')[1] == 1){
+    check_inputs()
 }
