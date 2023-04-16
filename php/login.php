@@ -4,6 +4,10 @@
 
     require 'connect.php';
 
+    // Hash password
+    $password = md5($password);
+
+    // Check user
     $result = $conn->query("SELECT * FROM `users` WHERE `nickname` = '$nickname' AND `pass` = '$password'");
 
     $user = $result->fetch_assoc();

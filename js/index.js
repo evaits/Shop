@@ -10,11 +10,7 @@ function checkbox_checked() {
 
         document.querySelector('.main_link > p').style.display = 'none'
 
-        let bag_link = document.querySelector('.bag_link')
 
-        bag_link.style.paddingRight = ''
-
-        setTimeout(() => bag_link.style.justifyContent = 'center', 178)
 
         document.querySelector('.bag_link > p').style.display = 'none'
 
@@ -26,10 +22,6 @@ function checkbox_checked() {
         document.querySelector('.nav_bar').style.width = '100px'
 
         setTimeout(() => document.querySelector('.main_link > p').style.display = 'block', 190)
-
-        let bag_link = document.querySelector('.bag_link')
-        bag_link.style.justifyContent = 'space-between'
-        bag_link.style.paddingRight = '20px'
              
         
         setTimeout(() => document.querySelector('.bag_link > p').style.display = 'block', 190)
@@ -58,9 +50,6 @@ function getCookie(name) {
 }
 
 let search = getCookie('search')
-if(user == undefined){
-    location = 'register/login.html'
-}
 if(search != undefined){
     document.querySelector('#search_input').value = search
 }

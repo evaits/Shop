@@ -5,6 +5,12 @@
 
     require ("connect.php");
 
+    // Hashing password
+
+    $password = md5($password);
+    echo $password;
+
+    // Check userName
     $stmt = $conn->prepare("SELECT `nickname` FROM `users` WHERE `nickname` = ?");
     $stmt->bind_param("s", $nickname);
     $stmt->execute();

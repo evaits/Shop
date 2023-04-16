@@ -14,7 +14,7 @@
 <body>
     <script src="js/index_cockie_check.js"></script>
     <div class="nav_bar">
-        <a href="index.html"><img src="img/nav-bar/logo.png" alt="logo" class="logo"></a>
+        <a href="index.php"><img src="img/nav-bar/logo.png" alt="logo" class="logo"></a>
 
         <div class="burger_menu" onclick="checkbox_checked()">
             <input type="checkbox" id="checkbox-toggle">
@@ -26,8 +26,8 @@
             <p>Store</p>
         </div>
 
-        <a href="#!" class="bag_link">
-            <img src="img/nav-bar/bag.png" alt="bag" class="bag-ico">
+        <a href="php/bag/bag.php" class="bag_link">
+            <img src="img/nav-bar/bag_unactive.png" alt="bag" class="bag-ico">
             <p>Bag</p>
         </a>
 
