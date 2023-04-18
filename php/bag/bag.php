@@ -31,7 +31,7 @@
             <p>Bag</p>
         </div>
 
-        <div class="exit" onclick="exit()">
+        <div class="exit" onclick="exit('../../')">
             <img src="../../Img/nav-bar/exit.png" alt="exit" class="exit_ico">
         </div>
     </div>
@@ -45,7 +45,7 @@
 
             <?php 
                 require '../connect.php';
-                $product = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products`");
+                $product = mysqli_query($conn, "SELECT products.name, products.shortInfo , products.price, products.img, products.type, bag.id, SUBSTRING(products.midleInfo, 1, 150) AS 'midleInfo', bag.amount, bag.product_id  FROM `products` JOIN bag ON products.id=bag.product_id WHERE bag.user_id = ". $_COOKIE['user'] .";");
                 if($product->num_rows != 0){
                     while($info = $product->fetch_assoc()){
                         echo '<div class="product">
@@ -56,20 +56,20 @@
                                 '. $info["shortInfo"] .'
                             </p>
                             <p class="middle_info">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam 
+                                '. $info["midleInfo"] .'...
                             </p>
                             <div class="product_footer">
                                 <div class="price">
-                                    $ 1799.99 x 1
+                                    $ '. $info["price"] .' x '. $info["amount"] .'
                                 </div>
                                 <div class="amount">
-                                    <div class="minus blocked">
+                                    <a href="reduceAmount.php?id='. $info["id"] .'" class="minus blocked">
                                         -
-                                    </div>
-                                    1
-                                    <div class="plus">
+                                    </a>
+                                    '. $info["amount"] .'
+                                    <a href="../addToBag.php?id='. $info["product_id"] .'" class="plus">
                                         +
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

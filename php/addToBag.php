@@ -9,8 +9,7 @@
         $stmt = mysqli_query($conn, "INSERT INTO bag(user_id, product_id, amount) VALUES (". $_COOKIE['user'] .", ". $id .", '1')");
     }
     else {
-        $amount = $products['amount'] + 1;
-        $stmt = mysqli_query($conn, "UPDATE `bag` SET `amount`= ". $amount ." WHERE `id` = ". $products['id'] ." ");
+        $stmt = mysqli_query($conn, "UPDATE `bag` SET `amount`= amount+1 WHERE `id` = ". $products['id'] ." ");
     }
     
     $conn->close();
