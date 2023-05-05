@@ -49,6 +49,9 @@
 
             <?php
                 require 'php/connect.php';
+                if(!isset($_COOKIE['user'])){
+                    header('Location: register/login.html');
+                }
                 if(!isset($_COOKIE['search'])){
                     $products = mysqli_query($conn, "SELECT `id`, `name`,`shortInfo`,`price`,`img`, `type` FROM `products`");
                 }

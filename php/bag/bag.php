@@ -44,66 +44,57 @@
             </h1>
 
             <?php 
+                if(!isset($_COOKIE['user'])){
+                    header('Location: ../../register/login.html');
+                }
                 require '../connect.php';
-                $product = mysqli_query($conn, "SELECT products.name, products.shortInfo , products.price, products.img, products.type, bag.id, SUBSTRING(products.midleInfo, 1, 150) AS 'midleInfo', bag.amount, bag.product_id  FROM `products` JOIN bag ON products.id=bag.product_id WHERE bag.user_id = ". $_COOKIE['user'] .";");
+                $product = mysqli_query($conn, "SELECT 
+                products.id AS 'productID', products.name, products.shortInfo , products.price, products.img, products.type, bag.id, SUBSTRING(products.midleInfo, 1, 150) AS 'midleInfo', bag.amount, bag.product_id  FROM `products` JOIN bag ON products.id=bag.product_id WHERE bag.user_id = ". $_COOKIE['user'] .";");
                 if($product->num_rows != 0){
                     while($info = $product->fetch_assoc()){
-                        echo '<div class="product">
-                        <img src="'. $info["img"] .'" alt="product" class="product_img">
-                        <div class="text">
-                            <h2 class="product_name">'. $info["name"] .'</h2>
-                            <p class="short_info">
-                                '. $info["shortInfo"] .'
-                            </p>
-                            <p class="middle_info">
-                                '. $info["midleInfo"] .'...
-                            </p>
-                            <div class="product_footer">
-                                <div class="price">
-                                    $ '. $info["price"] .' x '. $info["amount"] .'
-                                </div>
-                                <div class="amount">
-                                    <a href="reduceAmount.php?id='. $info["id"] .'" class="minus blocked">
-                                        -
-                                    </a>
-                                    '. $info["amount"] .'
-                                    <a href="../addToBag.php?id='. $info["product_id"] .'" class="plus">
-                                        +
-                                    </a>
+                        echo 
+                        '<div class="product">
+                            <img src="'. $info["img"] .'" alt="product" class="product_img_'. $info["type"] .'">
+                            <div class="text">
+                                <a href="../productPage.php?id='.$info["productID"].'" class="product_name">'.$info["name"].'</a>
+                                <p class="short_info">
+                                    '. $info["shortInfo"] .'
+                                </p>
+                                <p class="middle_info">
+                                    '. $info["midleInfo"] .'...
+                                </p>
+                                <div class="product_footer">
+                                    <div class="price">
+                                        $ '. $info["price"] .' x '. $info["amount"] .'
+                                    </div>
+                                    <div class="amount">
+                                        <a href="reduceAmount.php?id='. $info["id"] .'" class="minus blocked">
+                                            -
+                                        </a>
+                                        '. $info["amount"] .'
+                                        <a href="../addToBag.php?id='. $info["product_id"] .'" class="plus">
+                                            +
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>';
+                        </div>';
                     }
                 }
-            ?>
-            <div class="product">
-                <img src="../../Img/Products/dell.png" alt="product" class="product_img">
-                <div class="text">
-                    <h2 class="product_name">Dell XPS 13</h2>
-                    <p class="short_info">
-                        White
-                    </p>
-                    <p class="middle_info">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam 
-                    </p>
-                    <div class="product_footer">
-                        <div class="price">
-                            $ 1799.99 x 1
-                        </div>
-                        <div class="amount">
-                            <div class="minus blocked">
-                                -
-                            </div>
-                            1
-                            <div class="plus">
-                                +
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+                else{
+                    echo '
+                        <h3 class="bagEmpty">
+                            Bag is empty
+                        </h3>
+                        <p class="bagEmpty_p">
+                            You can add products on the 
+                            <a href="../../index.php">
+                                main page.
+                            </a>
+                        </p>
+                    ';
+                }
+            ?>     
             
         </div>
     </div>
@@ -133,7 +124,6 @@
     </div>
 
     <script src="../../js/index.js"></script>
-    <script src="../../js/index_cockie_check.js"></script>
     <script src="../../js/exit.js"></script>
 </body>
 </html>

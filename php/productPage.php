@@ -31,8 +31,8 @@
             <p>Store</p>
         </div>
 
-        <a href="#!" class="bag_link">
-            <img src="../img/nav-bar/bag.png" alt="bag" class="bag-ico">
+        <a href="bag/bag.php" class="bag_link">
+            <img src="../img/nav-bar/bag_unactive.png" alt="bag" class="bag-ico">
             <p>Bag</p>
         </a>
 
@@ -44,11 +44,14 @@
 
     <div class="main">
         <div class="wrapper">
-            <a class="back" href="../index.php">
+            <a class="back" href="#!" onclick="history.back()">
                 <img src="../Img/productPage/back.png" alt="arrow">
                 Back
             </a>
             <?php 
+                if(!isset($_COOKIE['user'])){
+                    header('Location: ../../register/login.html');
+                }
                 if($info["type"] == "small"){
                     echo 
                     '<div class="main_info_'.$info["type"].'">
